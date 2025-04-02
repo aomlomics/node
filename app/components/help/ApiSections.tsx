@@ -2,6 +2,8 @@ import { ReactNode } from "react";
 import CodeBlock from "./CodeBlock";
 import InlineCode from "./InlineCode";
 import SchemaDisplay from "../SchemaDisplay";
+import ThemeAwareSvg from "./ThemeAwareSvg";
+
 // Define types for our content structure
 export type Subsection = {
 	id: string; // Used for anchor links and React keys
@@ -153,7 +155,18 @@ if (http_status(response)$category == "Success") {
 					<>
 						<p className="mb-4">The following diagram shows the relationships between tables in the database:</p>
 
-						<div className="border p-4 rounded-md mb-4 bg-base-200 text-center"></div>
+						<div className="p-4 rounded-md mb-4 bg-base-200">
+							<div className="relative w-full aspect-[640/338]">
+								<ThemeAwareSvg
+									lightSrc="/images/NODE_Relations_Light.svg"
+									darkSrc="/images/NODE_Relations_Dark.svg"
+									alt="Database entity relationship diagram"
+									fill
+									sizes="(max-width: 768px) 100vw, 768px"
+									priority
+								/>
+							</div>
+						</div>
 
 						<p className="mb-4">
 							Use this diagram as a reference when constructing queries with the{" "}
